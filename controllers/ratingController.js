@@ -1,4 +1,4 @@
-const Rating = require("../models/Rating");
+const Rating = require("../models/rating");
 
 // 🔹 Créer un rating (avis d'un utilisateur sur un artisan)
 exports.createRating = async (req, res) => {
