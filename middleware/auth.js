@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
   const token = req.header('Authorization')?.replace('Bearer ', '');
   if (!token) return res.status(401).json({ error: 'Non authentifié' });
   try {
-const payload = jwt.verify(token, process.env.JWT_SECRET2);
+const payload = jwt.verify(token, 'MaPhraseSecreteDeTest123!');
 
     const user = await User.findById(payload.id);
     if (!user) throw new Error();

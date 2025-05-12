@@ -7,7 +7,7 @@ exports.authorizeSocket = async (socket, next) => {
     const token = socket.handshake.auth.token?.split(' ')[1];
     if (!token) return next(new Error('Authentification requise'));
 
-    const payload = jwt.verify(token, process.env.JWT_SECRET2);
+    const payload = jwt.verify(token, 'MaPhraseSecreteDeTest123!');
     const user    = await User.findById(payload.id);
     if (!user) return next(new Error('Utilisateur introuvable'));
 
